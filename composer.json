@@ -17,6 +17,6 @@
     "require": {
         "php": "^8.0",
         "ext-dom": "*",
-        "veewee/xml": "dev-master"
+        "veewee/xml": "^0.6.1"
     }
 }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cb1286fcb1f44bbe7eb251a54344f2fa",
+    "content-hash": "2318032deb278fe8eba47eb7a5faddcb",
     "packages": [
         {
             "name": "azjezz/psl",
@@ -144,7 +144,7 @@
         },
         {
             "name": "veewee/xml",
-            "version": "dev-master",
+            "version": "v0.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/veewee/xml.git",
@@ -171,7 +171,6 @@
                 "symfony/finder": "^5.2",
                 "veewee/composer-run-parallel": "^1.0.0"
             },
-            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -208,7 +207,7 @@
             ],
             "support": {
                 "issues": "https://github.com/veewee/xml/issues",
-                "source": "https://github.com/veewee/xml/tree/master"
+                "source": "https://github.com/veewee/xml/tree/v0.6.1"
             },
             "funding": [
                 {
@@ -280,13 +279,12 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "veewee/xml": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^8.0"
+        "php": "^8.0",
+        "ext-dom": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "2.1.0"
