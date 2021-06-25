@@ -21,8 +21,8 @@ class WsdlPreset implements Configurator
 
     public function __invoke(DOMXPath $xpath): DOMXPath
     {
-        namespaces([
-            'wsdl', $this->document->locate(root_namespace_uri()),
+        return namespaces([
+            'wsdl' => $this->document->locate(root_namespace_uri()),
         ])($xpath);
     }
 }

@@ -13,7 +13,7 @@ final class SoapHeaderLocator
 {
     public function __invoke(DOMDocument $document): ?DOMElement
     {
-        $soapNs = $document->namespaceURI ?? '';
+        $soapNs = $document->documentElement->namespaceURI ?? '';
         $xpath = Document::fromUnsafeDocument($document)->xpath(namespaces(['soap' => $soapNs]));
 
         return $xpath->query('//soap:Envelope/soap:Header')->first();

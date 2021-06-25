@@ -22,8 +22,8 @@ class EnvelopePreset implements Configurator
 
     public function __invoke(DOMXPath $xpath): DOMXPath
     {
-        namespaces(array_filter([
-            'soap', $this->document->locate(root_namespace_uri()),
+        return namespaces(array_filter([
+            'soap' => $this->document->locate(root_namespace_uri()),
             'application' => $this->document->locate(new BodyNamespaceLocator()),
         ]))($xpath);
     }
