@@ -1,0 +1,22 @@
+{
+    "name": "php-soap/xml",
+    "description": "XML wrappers for SOAP",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Soap\\Xml\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Toon Verwerft",
+            "email": "toonverwerft@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "ext-dom": "*",
+        "veewee/xml": "dev-master"
+    }
+}
