@@ -8,6 +8,11 @@
             "Soap\\Xml\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "SoapTest\\Xml\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Toon Verwerft",
@@ -18,5 +23,8 @@
         "php": "^8.0",
         "ext-dom": "*",
         "veewee/xml": "^0.6.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
     }
 }

@@ -7,13 +7,14 @@ namespace Soap\Xml\Locator;
 use DOMDocument;
 use DOMElement;
 use VeeWee\Xml\Dom\Document;
+use function VeeWee\Xml\Dom\Locator\root_namespace_uri;
 use function VeeWee\Xml\Dom\Xpath\Configurator\namespaces;
 
 final class SoapBodyLocator
 {
     public function __invoke(DOMDocument $document): ?DOMElement
     {
-        $soapNs = $document->documentElement->namespaceURI ?? '';
+        $soapNs = root_namespace_uri()($document) ?? '';
         $xpath = Document::fromUnsafeDocument($document)->xpath(namespaces(['soap' => $soapNs]));
 
         return $xpath->query('//soap:Envelope/soap:Body')->first();

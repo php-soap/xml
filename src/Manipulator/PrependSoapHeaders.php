@@ -23,6 +23,6 @@ final class PrependSoapHeaders
         $doc = Document::fromUnsafeDocument($document);
         $envelope = $doc->locate(new SoapEnvelopeLocator());
 
-        $document->insertBefore($this->soapHeaders, $envelope->firstChild);
+        return $envelope->insertBefore($this->soapHeaders, $envelope->firstChild);
     }
 }

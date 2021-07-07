@@ -10,6 +10,6 @@ final class BodyNamespaceLocator
 {
     public function __invoke(DOMDocument $document): ?string
     {
-        return (new SoapBodyLocator())($document)?->firstChild?->namespaceURI;
+        return (new SoapBodyLocator())($document)?->firstElementChild?->namespaceURI;
     }
 }
