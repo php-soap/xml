@@ -8,10 +8,10 @@ use Soap\Xml\Builder\SoapHeaders;
 use Soap\Xml\Manipulator\PrependSoapHeaders;
 use VeeWee\Xml\Dom\Document;
 
-class PrependSoapHeadersTest extends TestCase
+final class PrependSoapHeadersTest extends TestCase
 {
-    /** @test */
-    public function it_can_prepend_a_soap_header_on_an_envelope(): void
+    
+    public function test_it_can_prepend_a_soap_header_on_an_envelope(): void
     {
         $doc = Document::fromXmlFile(FIXTURE_DIR.'/empty-envelope-with-body.xml');
         $headers = $doc->build(new SoapHeaders())[0];
@@ -26,6 +26,6 @@ class PrependSoapHeadersTest extends TestCase
         </soap:Envelope>
         EOXML;
 
-        self::assertXmlStringEqualsXmlString($expected, $doc->toXmlString());
+        static::assertXmlStringEqualsXmlString($expected, $doc->toXmlString());
     }
 }

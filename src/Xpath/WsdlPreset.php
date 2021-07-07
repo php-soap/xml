@@ -10,7 +10,7 @@ use VeeWee\Xml\Dom\Xpath\Configurator\Configurator;
 use function VeeWee\Xml\Dom\Locator\root_namespace_uri;
 use function VeeWee\Xml\Dom\Xpath\Configurator\namespaces;
 
-class WsdlPreset implements Configurator
+final class WsdlPreset implements Configurator
 {
     private Document $document;
 
@@ -21,8 +21,8 @@ class WsdlPreset implements Configurator
 
     public function __invoke(DOMXPath $xpath): DOMXPath
     {
-        return namespaces([
+        return namespaces(array_filter([
             'wsdl' => $this->document->locate(root_namespace_uri()),
-        ])($xpath);
+        ]))($xpath);
     }
 }

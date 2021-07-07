@@ -8,24 +8,24 @@ use Soap\Xml\Locator\SoapHeaderLocator;
 use VeeWee\Xml\Dom\Document;
 use function VeeWee\Xml\Dom\Predicate\is_element;
 
-class SoapHeaderLocatorTest extends TestCase
+final class SoapHeaderLocatorTest extends TestCase
 {
-    /** @test */
-    public function it_detects_nothing_on_empty_envelope(): void
+    
+    public function test_it_detects_nothing_on_empty_envelope(): void
     {
         $doc = Document::fromXmlFile(FIXTURE_DIR.'/empty-envelope.xml');
         $header = $doc->locate(new SoapHeaderLocator());
 
-        self::assertNull($header);
+        static::assertNull($header);
     }
 
-    /** @test */
-    public function it_detects_header_if_it_exists(): void
+    
+    public function test_it_detects_header_if_it_exists(): void
     {
         $doc = Document::fromXmlFile(FIXTURE_DIR.'/empty-envelope-with-head-and-body.xml');
         $header = $doc->locate(new SoapHeaderLocator());
 
-        self::assertTrue(is_element($header));
-        self::assertSame('Header', $header->localName);
+        static::assertTrue(is_element($header));
+        static::assertSame('Header', $header->localName);
     }
 }

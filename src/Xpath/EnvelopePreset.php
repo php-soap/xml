@@ -8,10 +8,11 @@ use DOMXPath;
 use Soap\Xml\Locator\BodyNamespaceLocator;
 use VeeWee\Xml\Dom\Document;
 use VeeWee\Xml\Dom\Xpath\Configurator\Configurator;
+use VeeWee\Xml\Exception\RuntimeException;
 use function VeeWee\Xml\Dom\Locator\root_namespace_uri;
 use function VeeWee\Xml\Dom\Xpath\Configurator\namespaces;
 
-class EnvelopePreset implements Configurator
+final class EnvelopePreset implements Configurator
 {
     private Document $document;
 
@@ -20,6 +21,9 @@ class EnvelopePreset implements Configurator
         $this->document = $document;
     }
 
+    /**
+     * @throws RuntimeException
+     */
     public function __invoke(DOMXPath $xpath): DOMXPath
     {
         return namespaces(array_filter([

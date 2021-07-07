@@ -11,10 +11,10 @@ use function VeeWee\Xml\Dom\Builder\element;
 use function VeeWee\Xml\Dom\Builder\value;
 use function VeeWee\Xml\Dom\Mapper\xml_string;
 
-class SoapHeadersTest extends TestCase
+final class SoapHeadersTest extends TestCase
 {
-    /** @test */
-    public function it_can_create_a_header_element(): void
+    
+    public function test_it_can_create_a_header_element(): void
     {
         $builder = new SoapHeaders(
             children(
@@ -32,7 +32,7 @@ class SoapHeadersTest extends TestCase
         </soap:Header>
         EOXML;
 
-        self::assertXmlStringEqualsXmlString(
+        static::assertXmlStringEqualsXmlString(
             $expected,
             xml_string()($headers[0])
         );
