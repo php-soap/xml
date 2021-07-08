@@ -11,7 +11,6 @@ use function VeeWee\Xml\Dom\Predicate\is_element;
 
 final class EnvelopePresetTest extends TestCase
 {
-    
     public function test_it_provides_a_envelope_xpath_preset(): void
     {
         $doc = Document::fromXmlFile(FIXTURE_DIR.'/envelope-with-body.xml');

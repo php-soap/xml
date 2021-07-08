@@ -10,7 +10,6 @@ use function VeeWee\Xml\Dom\Predicate\is_element;
 
 final class WsdlPresetTest extends TestCase
 {
-    
     public function test_it_provides_a_wsdl_xpath_preset(): void
     {
         $doc = Document::fromXmlFile(FIXTURE_DIR.'/weather-ws.wsdl');

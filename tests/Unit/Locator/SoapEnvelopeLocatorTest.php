@@ -10,7 +10,6 @@ use function VeeWee\Xml\Dom\Predicate\is_element;
 
 final class SoapEnvelopeLocatorTest extends TestCase
 {
-    
     public function test_it_detects_envelope(): void
     {
         $doc = Document::fromXmlFile(FIXTURE_DIR.'/empty-envelope.xml');

@@ -10,7 +10,6 @@ use VeeWee\Xml\Dom\Document;
 
 final class PrependSoapHeadersTest extends TestCase
 {
-    
     public function test_it_can_prepend_a_soap_header_on_an_envelope(): void
     {
         $doc = Document::fromXmlFile(FIXTURE_DIR.'/empty-envelope-with-body.xml');

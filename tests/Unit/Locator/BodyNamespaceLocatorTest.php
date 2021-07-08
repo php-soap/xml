@@ -9,7 +9,6 @@ use VeeWee\Xml\Dom\Document;
 
 final class BodyNamespaceLocatorTest extends TestCase
 {
-    
     public function test_it_detects_nothing_on_empty_envelope(): void
     {
         $doc = Document::fromXmlFile(FIXTURE_DIR.'/empty-envelope.xml');

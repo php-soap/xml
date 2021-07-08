@@ -13,7 +13,6 @@ use function VeeWee\Xml\Dom\Mapper\xml_string;
 
 final class SoapHeadersTest extends TestCase
 {
-    
     public function test_it_can_create_a_header_element(): void
     {
         $builder = new SoapHeaders(
