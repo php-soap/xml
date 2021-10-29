@@ -349,4 +349,5 @@ Cached version of: http://wsf.cdyne.com/WeatherWS/Weather.asmx?wsdl
             <http:address location="http://wsf.cdyne.com/WeatherWS/Weather.asmx" />
         </wsdl:port>
     </wsdl:service>
+    <tns:hello>test</tns:hello>
 </wsdl:definitions>

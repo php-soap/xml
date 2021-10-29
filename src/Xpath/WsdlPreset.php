@@ -5,9 +5,12 @@ declare(strict_types=1);
 namespace Soap\Xml\Xpath;
 
 use DOMXPath;
+use Soap\Xml\Xmlns;
 use VeeWee\Xml\Dom\Document;
 use VeeWee\Xml\Dom\Xpath\Configurator\Configurator;
-use function VeeWee\Xml\Dom\Locator\root_namespace_uri;
+use function Psl\Dict\filter;
+use function Psl\Dict\merge;
+use function VeeWee\Xml\Dom\Locator\document_element;
 use function VeeWee\Xml\Dom\Xpath\Configurator\namespaces;
 
 final class WsdlPreset implements Configurator
@@ -21,8 +24,18 @@ final class WsdlPreset implements Configurator
 
     public function __invoke(DOMXPath $xpath): DOMXPath
     {
-        return namespaces(array_filter([
-            'wsdl' => $this->document->locate(root_namespace_uri()),
-        ]))($xpath);
+        $tns = $this->document->map(document_element())->getAttribute('targetNamespace');
+
+        return namespaces(filter(
+            merge(
+                [
+                    'schema' => Xmlns::xsd()->value(),
+                    'soap' => Xmlns::soap()->value(),
+                    'soap12' => Xmlns::soap12()->value(),
+                    'wsdl' => Xmlns::wsdl()->value(),
+                ],
+                $tns ? ['tns' => $tns] : []
+            )
+        ))($xpath);
     }
 }
