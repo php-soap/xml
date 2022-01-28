@@ -12,9 +12,15 @@ use VeeWee\Xml\Exception\RuntimeException;
 
 final class PrependSoapHeaders
 {
-    private DOMElement $soapHeaders;
+    /**
+     * @var list<DOMElement>
+     */
+    private array $soapHeaders;
 
-    public function __construct(DOMElement $soapHeaders)
+    /**
+     * @no-named-arguments
+     */
+    public function __construct(DOMElement ... $soapHeaders)
     {
         $this->soapHeaders = $soapHeaders;
     }
@@ -29,6 +35,10 @@ final class PrependSoapHeaders
         $doc = Document::fromUnsafeDocument($document);
         $envelope = $doc->locate(new SoapEnvelopeLocator());
 
-        return $envelope->insertBefore($this->soapHeaders, $envelope->firstChild);
+        foreach (array_reverse($this->soapHeaders) as $header) {
+            $envelope->insertBefore($header, $envelope->firstChild);
+        }
+
+        return $envelope;
     }
 }

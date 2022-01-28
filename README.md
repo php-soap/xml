@@ -10,24 +10,38 @@ Makes it possible to build the content of a `soap:Header` element.
 
 ```php
 use Soap\Xml\Builder\SoapHeaders;
-use Soap\Xml\Manipulator\PrependSoapHeaders;use VeeWee\Xml\Dom\Document;
-use function VeeWee\Xml\Dom\Builder\children;
+use Soap\Xml\Builder\SoapHeader;
+use Soap\Xml\Builder\Header\Actor;
+use Soap\Xml\Builder\Header\MustUnderstand;
+use Soap\Xml\Manipulator\PrependSoapHeaders;
+use VeeWee\Xml\Dom\Document;
+use function VeeWee\Xml\Dom\Builder\namespaced_element;
 use function VeeWee\Xml\Dom\Builder\element;
 use function VeeWee\Xml\Dom\Builder\value;
 
 $doc = Document::fromXmlString($xml);
 $builder = new SoapHeaders(
-    children(
-        element('user', value('josbos')),
-        element('password', value('topsecret'))
-    )
+    new SoapHeader(
+        $targetNamespace,
+        'Auth',
+        children(
+            namespaced_element($targetNamespace, 'user', value('josbos')),
+            namespaced_element($targetNamespace, 'password', value('topsecret'))
+        ),
+        // Optionally, you can provide additional configurators for setting
+        // SOAP-ENV specific attributes:
+        Actor::next(),
+        new MustUnderstand()
+    ),
+    $header2,
+    $header3
 );
 
-$header = $doc->build($builder)[0];
+$headers = $doc->build($builder);
 
 // You can prepend the soap:Header as first element of the soap:envelope
 // Like this
-$doc->manipulate(new PrependSoapHeaders($header));
+$doc->manipulate(new PrependSoapHeaders(...$headers));
 ```
 
 ## Locator
