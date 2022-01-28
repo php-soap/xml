@@ -44,6 +44,8 @@ $headers = $doc->build($builder);
 $doc->manipulate(new PrependSoapHeaders(...$headers));
 ```
 
+*Note*: The SoapHeader(s) can be configured by using any [DOM builder configurator](https://github.com/veewee/xml/blob/master/docs/dom.md#builders).
+
 ## Locator
 
 ### BodyNamespaceLocator
