@@ -27,4 +27,14 @@ final class Xmlns
     {
         return XmlXmlns::load('http://www.w3.org/2001/XMLSchema');
     }
+
+    public static function soap11Envelope(): XmlXmlns
+    {
+        return XmlXmlns::load('http://schemas.xmlsoap.org/soap/envelope/');
+    }
+
+    public static function soap12Envelope(): XmlXmlns
+    {
+        return XmlXmlns::load('http://www.w3.org/2003/05/soap-envelope/');
+    }
 }

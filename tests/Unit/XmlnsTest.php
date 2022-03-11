@@ -24,19 +24,27 @@ final class XmlnsTest extends TestCase
     {
         yield 'wsdl' => [
             static fn () => Xmlns::wsdl(),
-            'http://schemas.xmlsoap.org/wsdl/'
+            'http://schemas.xmlsoap.org/wsdl/',
         ];
         yield 'soap' => [
             static fn () => Xmlns::soap(),
-            'http://schemas.xmlsoap.org/wsdl/soap/'
+            'http://schemas.xmlsoap.org/wsdl/soap/',
         ];
         yield 'soap12' => [
             static fn () => Xmlns::soap12(),
-            'http://schemas.xmlsoap.org/wsdl/soap12/'
+            'http://schemas.xmlsoap.org/wsdl/soap12/',
         ];
         yield 'xsd' => [
             static fn () => Xmlns::xsd(),
-            'http://www.w3.org/2001/XMLSchema'
+            'http://www.w3.org/2001/XMLSchema',
+        ];
+        yield 'envelope11' => [
+            static fn () => Xmlns::soap11Envelope(),
+            'http://schemas.xmlsoap.org/soap/envelope/',
+        ];
+        yield 'envelope12' => [
+            static fn () => Xmlns::soap12Envelope(),
+            'http://www.w3.org/2003/05/soap-envelope/',
         ];
     }
 }
