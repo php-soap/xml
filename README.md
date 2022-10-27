@@ -2,6 +2,21 @@
 
 This package provides some tools on top of [veewee/xml](https://github.com/veewee/xml)'s DOM component in order to make it easier to deal with SOAP XML structures.
 
+# Want to help out? 💚
+
+- [Become a Sponsor](https://github.com/php-soap/.github/blob/main/HELPING_OUT.md#sponsor)
+- [Let us do your implementation](https://github.com/php-soap/.github/blob/main/HELPING_OUT.md#let-us-do-your-implementation)
+- [Contribute](https://github.com/php-soap/.github/blob/main/HELPING_OUT.md#contribute)
+- [Help maintain these packages](https://github.com/php-soap/.github/blob/main/HELPING_OUT.md#maintain)
+
+Want more information about the future of this project? Check out this list of the [next big projects](https://github.com/php-soap/.github/blob/main/PROJECTS.md) we'll be working on.
+
+# Installation
+
+```bash
+composer require php-soap/xml
+```
+
 ## Builder
 
 ### SoapHeaders
