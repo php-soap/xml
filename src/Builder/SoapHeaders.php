@@ -35,7 +35,7 @@ final class SoapHeaders implements Builder
         return namespaced_element(
             root_namespace_uri()($document) ?? '',
             'soap:Header',
-            ...$this->configurators
+            ...$this->configurators,
         )($node);
     }
 }
