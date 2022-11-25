@@ -37,7 +37,7 @@ final class SoapHeader implements Builder
             namespaced_element(
                 $this->namespace,
                 $this->name,
-                ...$this->configurators
+                ...$this->configurators,
             )
         )($node);
     }
