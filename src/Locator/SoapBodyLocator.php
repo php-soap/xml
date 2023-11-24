@@ -21,6 +21,6 @@ final class SoapBodyLocator
         $soapNs = root_namespace_uri()($document) ?? '';
         $xpath = Document::fromUnsafeDocument($document)->xpath(namespaces(['soap' => $soapNs]));
 
-        return $xpath->query('//soap:Envelope/soap:Body')->first();
+        return $xpath->query('//soap:Envelope/soap:Body')->expectAllOfType(DOMElement::class)->first();
     }
 }
