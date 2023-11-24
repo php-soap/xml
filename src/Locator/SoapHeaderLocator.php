@@ -21,6 +21,6 @@ final class SoapHeaderLocator
         $soapNs = root_namespace_uri()($document) ?? '';
         $xpath = Document::fromUnsafeDocument($document)->xpath(namespaces(['soap' => $soapNs]));
 
-        return $xpath->query('//soap:Envelope/soap:Header')->first();
+        return $xpath->query('//soap:Envelope/soap:Header')->expectAllOfType(DOMElement::class)->first();
     }
 }
