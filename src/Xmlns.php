@@ -28,6 +28,11 @@ final class Xmlns
         return XmlXmlns::load('http://www.w3.org/2001/XMLSchema');
     }
 
+    public static function xsd1999(): XmlXmlns
+    {
+        return XmlXmlns::load('http://www.w3.org/1999/XMLSchema');
+    }
+
     public static function soap11Envelope(): XmlXmlns
     {
         return XmlXmlns::load('http://schemas.xmlsoap.org/soap/envelope/');
