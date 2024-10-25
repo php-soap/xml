@@ -20,7 +20,7 @@ final class XmlnsTest extends TestCase
         static::assertSame($xmlns->value(), $uri);
     }
 
-    public function provideKnownXmlnses()
+    public static function provideKnownXmlnses()
     {
         yield 'wsdl' => [
             static fn () => Xmlns::wsdl(),
