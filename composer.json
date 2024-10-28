@@ -25,6 +25,6 @@
         "veewee/xml": "^3.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "^10.0"
+        "phpunit/phpunit": "^10.0 || ^11.0"
     }
 }
