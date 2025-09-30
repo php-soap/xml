@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace SoapTest\Xml\Unit\Xpath;
 
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use Soap\Xml\Xmlns;
 use VeeWee\Xml\Xmlns\Xmlns as XmlXmlns;
@@ -11,8 +12,8 @@ final class XmlnsTest extends TestCase
 {
     /**
      * @param callable(): XmlXmlns
-     * @dataProvider provideKnownXmlnses
      */
+    #[DataProvider('provideKnownXmlnses')]
     public function test_it_knows_some_xmlnses(callable $factory, string $uri): void
     {
         $xmlns = $factory();

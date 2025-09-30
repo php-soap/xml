@@ -23,4 +23,4 @@ jobs:
             - name: Install dependencies
               run: composer update --prefer-dist --no-progress --no-suggest ${{ matrix.composer-options }}
             - name: Run the tests
-              run: PHP_CS_FIXER_IGNORE_ENV=1 ./tools/php-cs-fixer.phar fix --dry-run
+              run: PHP_CS_FIXER_IGNORE_ENV=1 ./vendor/bin/php-cs-fixer fix --dry-run

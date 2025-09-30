@@ -22,10 +22,11 @@
     "require": {
         "php": "~8.3.0 || ~8.4.0 || ~8.5.0",
         "ext-dom": "*",
-        "veewee/xml": "^3.3"
+        "veewee/xml": "^3.4"
     },
     "require-dev": {
         "phpunit/phpunit": "~12.3",
-        "vimeo/psalm": "~6.13"
+        "vimeo/psalm": "~6.13",
+        "php-cs-fixer/shim": "^3.88"
     }
 }
