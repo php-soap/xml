@@ -34,7 +34,7 @@ final class WsdlPreset implements Configurator
                     'soap12' => Xmlns::soap12()->value(),
                     'wsdl' => Xmlns::wsdl()->value(),
                 ],
-                $tns !== null && $tns !== '' ? ['tns' => $tns] : []
+                $tns !== null ? ['tns' => $tns] : []
             )
         ))($xpath);
     }
