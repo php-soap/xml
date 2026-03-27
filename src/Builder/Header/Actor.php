@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace Soap\Xml\Builder\Header;
 
-use DOMNode;
+use Dom\Node;
 use VeeWee\Xml\Dom\Builder\Builder;
 use VeeWee\Xml\Exception\RuntimeException;
 use function VeeWee\Xml\Dom\Builder\namespaced_attribute;
@@ -26,7 +26,7 @@ final class Actor implements Builder
     /**
      * @psalm-suppress MissingThrowsDocblock
      */
-    public function __invoke(DOMNode $node): DOMNode
+    public function __invoke(Node $node): Node
     {
         $document = detect_document($node);
         $namespace = root_namespace_uri()($document) ?? '';

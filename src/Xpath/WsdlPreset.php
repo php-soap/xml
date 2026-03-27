@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Soap\Xml\Xpath;
 
-use DOMXPath;
+use Dom\XPath;
 use Soap\Xml\Xmlns;
 use VeeWee\Xml\Dom\Document;
 use VeeWee\Xml\Dom\Xpath\Configurator\Configurator;
@@ -22,8 +22,9 @@ final class WsdlPreset implements Configurator
         $this->document = $document;
     }
 
-    public function __invoke(DOMXPath $xpath): DOMXPath
+    public function __invoke(XPath $xpath): XPath
     {
+        /** @var string|null $tns */
         $tns = $this->document->map(document_element())->getAttribute('targetNamespace');
 
         return namespaces(filter(
@@ -34,7 +35,7 @@ final class WsdlPreset implements Configurator
                     'soap12' => Xmlns::soap12()->value(),
                     'wsdl' => Xmlns::wsdl()->value(),
                 ],
-                $tns ? ['tns' => $tns] : []
+                $tns !== null && $tns !== '' ? ['tns' => $tns] : []
             )
         ))($xpath);
     }

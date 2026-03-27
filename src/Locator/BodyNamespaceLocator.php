@@ -4,19 +4,18 @@ declare(strict_types=1);
 
 namespace Soap\Xml\Locator;
 
-use DOMDocument;
+use Dom\XMLDocument;
 use VeeWee\Xml\Exception\RuntimeException;
 
 final class BodyNamespaceLocator
 {
     /**
-     * @psalm-suppress UndefinedPropertyFetch - psalm gets lost
-     * @psalm-suppress MixedReturnStatement - psalm gets lost
-     * @psalm-suppress MixedPropertyFetch - psalm gets lost
-     * @psalm-suppress MixedInferredReturnType - psalm gets lost
+     * @psalm-suppress MixedPropertyFetch
+     * @psalm-suppress MixedReturnStatement
+     * @psalm-suppress MixedInferredReturnType
      * @throws RuntimeException
      */
-    public function __invoke(DOMDocument $document): ?string
+    public function __invoke(XMLDocument $document): ?string
     {
         return (new SoapBodyLocator())($document)?->firstElementChild?->namespaceURI;
     }

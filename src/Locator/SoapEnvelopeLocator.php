@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace Soap\Xml\Locator;
 
-use DOMDocument;
-use DOMElement;
+use Dom\Element;
+use Dom\XMLDocument;
 
 final class SoapEnvelopeLocator
 {
-    public function __invoke(DOMDocument $document): DOMElement
+    /** @psalm-suppress MixedReturnStatement */
+    public function __invoke(XMLDocument $document): Element
     {
         return $document->documentElement;
     }

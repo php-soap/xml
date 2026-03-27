@@ -13,7 +13,6 @@ use VeeWee\Xml\Dom\Document;
 use function VeeWee\Xml\Dom\Builder\children;
 use function VeeWee\Xml\Dom\Builder\namespaced_element;
 use function VeeWee\Xml\Dom\Builder\value;
-use function VeeWee\Xml\Dom\Configurator\comparable;
 
 final class SoapHeaderTest extends TestCase
 {
@@ -47,13 +46,9 @@ final class SoapHeaderTest extends TestCase
                 <Acting xmlns="https://foo.bar" soap:actor="http://schemas.xmlsoap.org/soap/actor/next" />
                 <Understanding xmlns="https://foo.bar" soap:mustUnderstand="1" />
             </soap:Header>
-        </soap:Envelope>        
+        </soap:Envelope>
         EOXML;
 
-
-        static::assertXmlStringEqualsXmlString(
-            Document::fromXmlString($expected, comparable())->toXmlString(),
-            Document::fromUnsafeDocument($doc->toUnsafeDocument(), comparable())->toXmlString()
-        );
+        static::assertXmlStringEqualsXmlString($expected, $doc->toXmlString());
     }
 }
