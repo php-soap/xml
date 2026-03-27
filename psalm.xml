@@ -22,6 +22,9 @@
             <directory name="tests" />
         </ignoreFiles>
     </projectFiles>
+    <stubs>
+        <file name="vendor/veewee/xml/stubs/DOM.phpstub" />
+    </stubs>
     <ignoreExceptions>
         <class name="InvalidArgumentException" />
     </ignoreExceptions>

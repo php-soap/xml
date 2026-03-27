@@ -24,7 +24,6 @@ final class WsdlPreset implements Configurator
 
     public function __invoke(XPath $xpath): XPath
     {
-        /** @var string|null $tns */
         $tns = $this->document->map(document_element())->getAttribute('targetNamespace');
 
         return namespaces(filter(

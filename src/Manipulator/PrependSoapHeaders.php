@@ -36,7 +36,6 @@ final class PrependSoapHeaders
         $envelope = $doc->locate(new SoapEnvelopeLocator());
 
         foreach (array_reverse($this->soapHeaders) as $header) {
-            /** @psalm-suppress MixedArgument */
             $envelope->insertBefore($header, $envelope->firstChild);
         }
 

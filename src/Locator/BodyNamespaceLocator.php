@@ -10,9 +10,6 @@ use VeeWee\Xml\Exception\RuntimeException;
 final class BodyNamespaceLocator
 {
     /**
-     * @psalm-suppress MixedPropertyFetch
-     * @psalm-suppress MixedReturnStatement
-     * @psalm-suppress MixedInferredReturnType
      * @throws RuntimeException
      */
     public function __invoke(XMLDocument $document): ?string

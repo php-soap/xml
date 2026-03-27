@@ -24,7 +24,7 @@
         "ext-dom": "*",
         "php-standard-library/dict": "^6.1",
         "php-standard-library/foundation": "^6.1",
-        "veewee/xml": "^4.7"
+        "veewee/xml": "^4.8"
     },
     "require-dev": {
         "phpunit/phpunit": "~12.3",
