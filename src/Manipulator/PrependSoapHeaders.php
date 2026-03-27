@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Soap\Xml\Manipulator;
 
-use DOMDocument;
-use DOMElement;
+use Dom\Element;
+use Dom\XMLDocument;
 use Soap\Xml\Locator\SoapEnvelopeLocator;
 use VeeWee\Xml\Dom\Document;
 use VeeWee\Xml\Exception\RuntimeException;
@@ -13,14 +13,14 @@ use VeeWee\Xml\Exception\RuntimeException;
 final class PrependSoapHeaders
 {
     /**
-     * @var list<DOMElement>
+     * @var list<Element>
      */
     private array $soapHeaders;
 
     /**
      * @no-named-arguments
      */
-    public function __construct(DOMElement ... $soapHeaders)
+    public function __construct(Element ... $soapHeaders)
     {
         $this->soapHeaders = $soapHeaders;
     }
@@ -30,7 +30,7 @@ final class PrependSoapHeaders
      * @psalm-suppress LessSpecificReturnStatement
      * @psalm-suppress MoreSpecificReturnType
      */
-    public function __invoke(DOMDocument $document): DOMElement
+    public function __invoke(XMLDocument $document): Element
     {
         $doc = Document::fromUnsafeDocument($document);
         $envelope = $doc->locate(new SoapEnvelopeLocator());

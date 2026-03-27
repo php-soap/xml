@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Soap\Xml\Xpath;
 
-use DOMXPath;
+use Dom\XPath;
 use Soap\Xml\Locator\BodyNamespaceLocator;
 use VeeWee\Xml\Dom\Document;
 use VeeWee\Xml\Dom\Xpath\Configurator\Configurator;
@@ -24,7 +24,7 @@ final class EnvelopePreset implements Configurator
     /**
      * @throws RuntimeException
      */
-    public function __invoke(DOMXPath $xpath): DOMXPath
+    public function __invoke(XPath $xpath): XPath
     {
         return namespaces(array_filter([
             'soap' => $this->document->locate(root_namespace_uri()),

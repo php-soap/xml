@@ -3,8 +3,8 @@ declare(strict_types=1);
 
 namespace Soap\Xml\Builder;
 
-use DOMElement;
-use DOMNode;
+use Dom\Element;
+use Dom\Node;
 use VeeWee\Xml\Dom\Builder\Builder;
 use function VeeWee\Xml\Dom\Builder\children;
 use function VeeWee\Xml\Dom\Builder\namespaced_element;
@@ -12,13 +12,13 @@ use function VeeWee\Xml\Dom\Builder\namespaced_element;
 final class SoapHeader implements Builder
 {
     /**
-     * @var list<callable(DOMNode): DOMElement>
+     * @var list<callable(Node): Element>
      */
     private array $configurators;
 
     /**
      * @no-named-arguments
-     * @param list<callable(DOMNode): DOMElement> $configurators
+     * @param list<callable(Node): Element> $configurators
      */
     public function __construct(
         private string $namespace,
@@ -31,7 +31,7 @@ final class SoapHeader implements Builder
     /**
      * @psalm-suppress MissingThrowsDocblock
      */
-    public function __invoke(DOMNode $node): DOMNode
+    public function __invoke(Node $node): Node
     {
         return children(
             namespaced_element(
