@@ -27,7 +27,7 @@
         "veewee/xml": "^4.8"
     },
     "require-dev": {
-        "phpunit/phpunit": "~12.3",
+        "phpunit/phpunit": "~12.3 || ~13.0",
         "vimeo/psalm": "~6.13",
         "php-cs-fixer/shim": "^3.88"
     }
