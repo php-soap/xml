@@ -12,13 +12,13 @@ use function VeeWee\Xml\Dom\Locator\root_namespace_uri;
 final class SoapHeaders implements Builder
 {
     /**
-     * @var list<callable(Node): Element>
+     * @var list<callable(Element): Element>
      */
     private array $configurators;
 
     /**
      * @no-named-arguments
-     * @param list<callable(Node): Element> $configurators
+     * @param list<callable(Element): Element> $configurators Forwarded to {@see namespaced_element()}, hence the Element signature.
      */
     public function __construct(callable ... $configurators)
     {
